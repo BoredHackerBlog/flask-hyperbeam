@@ -1,0 +1,7 @@
+:8888
+
+reverse_proxy / app_hb:5000
+
+basicauth * {
+        research #ADD HASH HERE!!!
+}

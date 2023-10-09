@@ -1,0 +1,14 @@
+services:
+    #reverse proxy / entry
+    caddy_hb:
+        image: caddy
+        ports:
+            - 8889:8888
+        volumes:
+            - ./caddy/Caddyfile:/etc/caddy/Caddyfile
+
+    #webapp
+    app_hb:
+        build: ./app
+        image: app_hb
+        command: gunicorn --workers 2 --bind 0.0.0.0:5000 app:app
